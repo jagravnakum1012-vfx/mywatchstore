@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Horology Vault | Luxury Watches — Time, Refined.</title>
+    <meta name="description" content="Discover exceptional handcrafted Swiss-inspired timepieces crafted for connoisseurs. Explore luxury chronographs, automatic watches, and bespoke horology collections.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0B1F33',
+                            dark: '#071522',
+                            light: '#16314D'
+                        },
+                        ivory: {
+                            DEFAULT: '#F4F0E8',
+                            light: '#FAF9F6',
+                            dark: '#E8E2D5'
+                        },
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            soft: '#D8BD82',
+                            dark: '#9A7B3E'
+                        },
+                        slate: {
+                            custom: '#394552'
+                        },
+                        charcoal: '#1E252B',
+                        borderLight: '#DDD8CC'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables & Global Typography */
+        :root {
+            --color-navy: #0B1F33;
+            --color-navy-dark: #071522;
+            --color-ivory: #F4F0E8;
+            --color-offwhite: #FAF9F6;
+            --color-gold: #C5A059;
+            --color-gold-soft: #D8BD82;
+            --color-slate: #394552;
+            --color-border: #DDD8CC;
+        }
+
+        body {
+            background-color: var(--color-offwhite);
+            color: #1E252B;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Gold gradient accents */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D8BD82 0%, #C5A059 50%, #9A7B3E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+        }
+
+        /* Ken Burns Animation for Hero Slider */
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.08) translate(-1%, -1%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+        .ken-burns {
+            animation: kenburns 20s ease-in-out infinite alternate;
+        }
+
+        /* Watch Spinner Loader */
+        @keyframes rotateHand {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .watch-hand-minute {
+            animation: rotateHand 2s linear infinite;
+            transform-origin: bottom center;
+        }
+        .watch-hand-hour {
+            animation: rotateHand 12s linear infinite;
+            transform-origin: bottom center;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #071522;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D8BD82;
+        }
+
+        /* Modal transitions */
+        .modal-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transform: scale(1) !important;
+        }
+
+        .drawer-open {
+            transform: translateX(0) !important;
+        }
+
+        /* Glassmorphism */
+        .glass-navy {
+            background: rgba(11, 31, 51, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-ivory {
+            background: rgba(244, 240, 232, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Print styles for Invoice */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-invoice, #printable-invoice * {
+                visibility: visible;
+            }
+            #printable-invoice {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Accessibility reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-navy">
+
+    <!-- PRELOADER SCREEN -->
+    <div id="preloader" class="fixed inset-0 z-50 bg-navy-dark flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative w-24 h-24 mb-6 flex items-center justify-center">
+            <!-- Watch Dial Outer Ring -->
+            <div class="absolute inset-0 rounded-full border-2 border-gold/30"></div>
+            <div class="absolute inset-1 rounded-full border border-gold/10"></div>
+            <!-- Hour ticks -->
+            <div class="absolute top-1 w-0.5 h-2 bg-gold"></div>
+            <div class="absolute bottom-1 w-0.5 h-2 bg-gold"></div>
+            <div class="absolute left-1 h-0.5 w-2 bg-gold"></div>
+            <div class="absolute right-1 h-0.5 w-2 bg-gold"></div>
+            <!-- Center Pin -->
+            <div class="w-3 h-3 rounded-full bg-gold z-10"></div>
+            <!-- Minute Hand -->
+            <div class="watch-hand-minute absolute bottom-1/2 w-0.5 h-8 bg-gold rounded-full"></div>
+            <!-- Hour Hand -->
+            <div class="watch-hand-hour absolute bottom-1/2 w-1 h-5 bg-ivory rounded-full"></div>
+        </div>
+        <h2 class="font-cinzel text-xl text-gold tracking-[0.3em] font-semibold uppercase">THE HOROLOGY VAULT</h2>
+        <p class="font-cormorant italic text-ivory/70 text-sm mt-2">Time, Refined.</p>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full px-4"></div>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div id="announcement-bar" class="bg-navy-dark text-ivory/90 text-xs py-2 px-4 text-center font-medium border-b border-gold/20 flex justify-between items-center relative transition-all duration-300">
+        <div class="flex-1 text-center font-sans tracking-wide">
+            <span class="text-gold font-semibold"><i class="fa-solid fa-gem mr-1"></i> EXCLUSIVE OFFER:</span> Complimentary insured shipping on orders above ₹25,000 | Use code <span class="text-gold font-bold">HOROLOGY10</span> for 10% off
+        </div>
+        <button onclick="dismissAnnouncement()" class="text-ivory/60 hover:text-gold transition-colors ml-2 px-1 focus:outline-none" aria-label="Close Announcement">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="main-header" class="sticky top-0 z-40 w-full transition-all duration-500 glass-navy text-ivory border-b border-gold/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Left: Logo & Tagline -->
+                <a href="#" onclick="showSection('home')" class="flex flex-col group focus:outline-none">
+                    <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] text-ivory group-hover:text-gold transition-colors">
+                        THE HOROLOGY VAULT
+                    </span>
+                    <span class="font-cormorant text-xs tracking-[0.25em] text-gold/80 italic -mt-1 group-hover:text-ivory transition-colors">
+                        TIME, REFINED.
+                    </span>
+                </a>
+
+                <!-- Center: Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 font-sans text-xs uppercase tracking-[0.15em] font-medium text-ivory/90">
+                    <a href="#home" onclick="showSection('home')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Home</a>
+                    <a href="#collections" onclick="scrollToSection('collections')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Collections</a>
+                    <a href="#shop" onclick="filterByGender('Men')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Men</a>
+                    <a href="#shop" onclick="filterByGender('Women')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Women</a>
+                    <a href="#shop" onclick="filterByGender('Children')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Children</a>
+                    <a href="#new-arrivals" onclick="scrollToSection('new-arrivals')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">New Arrivals</a>
+                    <a href="#calculator" onclick="scrollToSection('calculator')" class="nav-link hover:text-gold transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold hover:after:w-full after:transition-all">Valuation</a>
+                </nav>
+
+                <!-- Right: Utility Icons -->
+                <div class="flex items-center space-x-5 text-ivory">
+                    <!-- Search Toggle -->
+                    <button onclick="toggleSearchModal()" class="hover:text-gold transition-colors focus:outline-none p-1.5" aria-label="Search Timepieces">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+
+                    <!-- Demo Admin Report Button -->
+                    <button onclick="toggleAdminModal()" class="hidden md:flex items-center gap-1.5 px-3 py-1 text-xs border border-gold/40 text-gold rounded hover:bg-gold hover:text-navy font-semibold transition-all" title="View Sales Dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Admin</span>
+                    </button>
+
+                    <!-- Wishlist Button -->
+                    <button onclick="toggleWishlistDrawer()" class="relative hover:text-gold transition-colors focus:outline-none p-1.5" aria-label="Wishlist">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlist-badge" class="absolute -top-1 -right-1 bg-gold text-navy font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center opacity-0 scale-0 transition-all">0</span>
+                    </button>
+
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartDrawer()" class="relative hover:text-gold transition-colors focus:outline-none p-1.5" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-gold text-navy font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center opacity-0 scale-0 transition-all">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Hamburger -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden hover:text-gold focus:outline-none p-1.5" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark border-b border-gold/20 px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4 font-sans text-sm uppercase tracking-wider font-medium">
+                <a href="#home" onclick="showSection('home'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Home</a>
+                <a href="#collections" onclick="scrollToSection('collections'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Collections</a>
+                <a href="#shop" onclick="filterByGender('Men'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Men's Timepieces</a>
+                <a href="#shop" onclick="filterByGender('Women'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Women's Timepieces</a>
+                <a href="#shop" onclick="filterByGender('Children'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Children's Collection</a>
+                <a href="#new-arrivals" onclick="scrollToSection('new-arrivals'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">New Arrivals</a>
+                <a href="#calculator" onclick="scrollToSection('calculator'); toggleMobileMenu();" class="hover:text-gold transition-colors border-b border-navy-light pb-2">Investment Calculator</a>
+                <button onclick="toggleAdminModal(); toggleMobileMenu();" class="text-left text-gold hover:underline pt-2">
+                    <i class="fa-solid fa-chart-pie mr-2"></i> Demo Sales Report
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEARCH OVERLAY / MODAL -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-navy-dark/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex flex-col p-6 sm:p-12">
+        <div class="max-w-4xl mx-auto w-full flex justify-between items-center mb-8">
+            <span class="font-cinzel text-gold text-lg uppercase tracking-widest">Search The Vault</span>
+            <button onclick="toggleSearchModal()" class="text-ivory hover:text-gold text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="max-w-4xl mx-auto w-full relative">
+            <input type="text" id="search-input" onkeyup="handleLiveSearch(this.value)" placeholder="Search by name, brand, reference SKU, or movement..." class="w-full bg-navy border-b-2 border-gold text-ivory placeholder-ivory/40 font-cormorant text-2xl sm:text-3xl py-4 px-2 focus:outline-none focus:border-gold-soft">
+            <div id="search-results-container" class="mt-6 max-h-[60vh] overflow-y-auto space-y-4 divide-y divide-navy-light pr-2">
+                <p class="text-ivory/50 font-sans text-sm italic">Type to search over 20 handcrafted luxury watch references...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="main-content">
+
+        <!-- HERO SLIDER SECTION -->
+        <section id="hero-section" class="relative w-full h-[88vh] min-h-[580px] bg-navy-dark overflow-hidden select-none">
+            
+            <!-- Slide 1 -->
+            <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center ken-burns" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1920&q=80'); opacity: 0.35;"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/80 to-transparent"></div>
+                
+                <div class="relative max-w-7xl mx-auto px-6 sm:px-12 w-full text-ivory">
+                    <span class="inline-block font-cinzel text-xs sm:text-sm tracking-[0.4em] text-gold uppercase mb-3 border-b border-gold/40 pb-1">THE HOROLOGY VAULT</span>
+                    <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider leading-none mb-6">
+                        TIME, <br><span class="gold-gradient-text">REFINED.</span>
+                    </h1>
+                    <p class="font-cormorant text-lg sm:text-2xl text-ivory/80 max-w-xl font-light italic mb-8">
+                        Discover exceptional timepieces crafted for those who appreciate every passing second of life.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#shop" onclick="scrollToSection('shop')" class="px-8 py-4 bg-gold text-navy hover:bg-gold-soft font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-xl hover:shadow-gold/20 flex items-center gap-2">
+                            Explore Collection <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#story" onclick="scrollToSection('story')" class="px-8 py-4 border border-gold/60 text-ivory hover:bg-gold/10 font-sans text-xs uppercase tracking-[0.2em] font-medium transition-all">
+                            Discover Our Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center ken-burns" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1920&q=80'); opacity: 0.35;"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/80 to-transparent"></div>
+                
+                <div class="relative max-w-7xl mx-auto px-6 sm:px-12 w-full text-ivory">
+                    <span class="inline-block font-cinzel text-xs sm:text-sm tracking-[0.4em] text-gold uppercase mb-3 border-b border-gold/40 pb-1">SWISS HERITAGE</span>
+                    <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider leading-none mb-6">
+                        THE ART OF <br><span class="gold-gradient-text">PRECISION.</span>
+                    </h1>
+                    <p class="font-cormorant text-lg sm:text-2xl text-ivory/80 max-w-xl font-light italic mb-8">
+                        Exceptional mechanics fused with timeless architectural silhouetting. Built to transcend generations.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#shop" onclick="scrollToSection('shop')" class="px-8 py-4 bg-gold text-navy hover:bg-gold-soft font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-xl">
+                            View Automatic Complications
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center ken-burns" style="background-image: url('https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1920&q=80'); opacity: 0.35;"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/80 to-transparent"></div>
+                
+                <div class="relative max-w-7xl mx-auto px-6 sm:px-12 w-full text-ivory">
+                    <span class="inline-block font-cinzel text-xs sm:text-sm tracking-[0.4em] text-gold uppercase mb-3 border-b border-gold/40 pb-1">THE VAULT COLLECTION</span>
+                    <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider leading-none mb-6">
+                        MODERN <br><span class="gold-gradient-text">ICONS.</span>
+                    </h1>
+                    <p class="font-cormorant text-lg sm:text-2xl text-ivory/80 max-w-xl font-light italic mb-8">
+                        Contemporary silhouettes engineered with modern sapphire clarity and hand-finished bracelets.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#vault-limited" onclick="scrollToSection('vault-limited')" class="px-8 py-4 bg-gold text-navy hover:bg-gold-soft font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-xl">
+                            Explore Limited Edition
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Arrows & Indicators -->
+            <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-gold/60 hover:text-gold border border-gold/30 hover:border-gold rounded-full transition-all focus:outline-none" aria-label="Previous Slide">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+            <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-gold/60 hover:text-gold border border-gold/30 hover:border-gold rounded-full transition-all focus:outline-none" aria-label="Next Slide">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+
+            <!-- Slide Dots -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-3">
+                <button onclick="goToHeroSlide(0)" class="hero-dot w-3 h-3 rounded-full bg-gold transition-all"></button>
+                <button onclick="goToHeroSlide(1)" class="hero-dot w-3 h-3 rounded-full bg-ivory/40 hover:bg-gold transition-all"></button>
+                <button onclick="goToHeroSlide(2)" class="hero-dot w-3 h-3 rounded-full bg-ivory/40 hover:bg-gold transition-all"></button>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 right-8 hidden md:flex items-center space-x-2 text-ivory/50 text-[10px] uppercase tracking-[0.3em]">
+                <span>Scroll To Discover</span>
+                <div class="w-6 h-0.5 bg-gold/50"></div>
+            </div>
+        </section>
+
+        <!-- VALUE PROPOSITION / TRUST BAR -->
+        <section class="bg-navy py-8 border-b border-gold/20 text-ivory">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="flex flex-col items-center space-y-2 p-2">
+                    <i class="fa-solid fa-shield-halved text-gold text-2xl mb-1"></i>
+                    <h3 class="font-cinzel text-xs font-bold uppercase tracking-wider text-ivory">100% Authentic</h3>
+                    <p class="font-sans text-xs text-ivory/60">Certified Swiss Origin & Serial Verification</p>
+                </div>
+                <div class="flex flex-col items-center space-y-2 p-2">
+                    <i class="fa-solid fa-truck-fast text-gold text-2xl mb-1"></i>
+                    <h3 class="font-cinzel text-xs font-bold uppercase tracking-wider text-ivory">Insured Delivery</h3>
+                    <p class="font-sans text-xs text-ivory/60">Complimentary Shipping Over ₹25,000</p>
+                </div>
+                <div class="flex flex-col items-center space-y-2 p-2">
+                    <i class="fa-solid fa-ribbon text-gold text-2xl mb-1"></i>
+                    <h3 class="font-cinzel text-xs font-bold uppercase tracking-wider text-ivory">2-Year Warranty</h3>
+                    <p class="font-sans text-xs text-ivory/60">Global International Vault Guarantee</p>
+                </div>
+                <div class="flex flex-col items-center space-y-2 p-2">
+                    <i class="fa-solid fa-rotate-left text-gold text-2xl mb-1"></i>
+                    <h3 class="font-cinzel text-xs font-bold uppercase tracking-wider text-ivory">30-Day Concierge</h3>
+                    <p class="font-sans text-xs text-ivory/60">Hassle-Free Returns & Size Adjustments</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section id="collections" class="py-20 bg-ivory-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-gold font-semibold">CURATED CATEGORIES</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl text-navy font-bold mt-2">Explore The Collections</h2>
+                    <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Men -->
+                    <div onclick="filterByGender('Men')" class="group relative h-96 rounded shadow-lg overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Men's Watches" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-ivory">
+                            <span class="text-[10px] font-cinzel text-gold tracking-widest uppercase">GENTLEMEN</span>
+                            <h3 class="font-cinzel text-2xl font-bold mb-1">Men's Timepieces</h3>
+                            <p class="font-cormorant italic text-sm text-ivory/80 mb-4">Chronographs, Automatic, & Sports Horology</p>
+                            <span class="inline-flex items-center text-xs font-sans font-bold tracking-widest uppercase text-gold group-hover:underline">
+                                Discover Collection <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Women -->
+                    <div onclick="filterByGender('Women')" class="group relative h-96 rounded shadow-lg overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80" alt="Women's Watches" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-ivory">
+                            <span class="text-[10px] font-cinzel text-gold tracking-widest uppercase">LADIES</span>
+                            <h3 class="font-cinzel text-2xl font-bold mb-1">Women's Timepieces</h3>
+                            <p class="font-cormorant italic text-sm text-ivory/80 mb-4">Jewellery Complications & Slender Profiles</p>
+                            <span class="inline-flex items-center text-xs font-sans font-bold tracking-widest uppercase text-gold group-hover:underline">
+                                Discover Collection <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Children -->
+                    <div onclick="filterByGender('Children')" class="group relative h-96 rounded shadow-lg overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80" alt="Children's Collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-ivory">
+                            <span class="text-[10px] font-cinzel text-gold tracking-widest uppercase">JUNIOR VAULT</span>
+                            <h3 class="font-cinzel text-2xl font-bold mb-1">Children's Collection</h3>
+                            <p class="font-cormorant italic text-sm text-ivory/80 mb-4">Durable Heritage Learning Timepieces</p>
+                            <span class="inline-flex items-center text-xs font-sans font-bold tracking-widest uppercase text-gold group-hover:underline">
+                                Discover Collection <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Automatic Complications -->
+                    <div onclick="filterByCategory('Automatic')" class="group relative h-96 rounded shadow-lg overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=800&q=80" alt="Automatic Complications" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-ivory">
+                            <span class="text-[10px] font-cinzel text-gold tracking-widest uppercase">MASTER CRAFT</span>
+                            <h3 class="font-cinzel text-2xl font-bold mb-1">Automatic Movements</h3>
+                            <p class="font-cormorant italic text-sm text-ivory/80 mb-4">Self-Winding Mechanical Perfection</p>
+                            <span class="inline-flex items-center text-xs font-sans font-bold tracking-widest uppercase text-gold group-hover:underline">
+                                Discover Collection <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN SHOP / CATALOG SECTION -->
+        <section id="shop" class="py-20 bg-ivory border-t border-borderLight">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-gold font-semibold">THE VAULT CATALOGUE</span>
+                        <h2 class="font-cinzel text-3xl sm:text-4xl text-navy font-bold mt-1">Curated Timepieces</h2>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                        <span id="product-count-display" class="font-sans text-xs text-slate-custom font-medium">Showing 20 Timepieces</span>
+                        <button onclick="resetFilters()" class="text-xs font-sans text-gold hover:underline uppercase tracking-wider">Clear All Filters</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Sidebar Filters -->
+                    <aside class="bg-navy p-6 rounded shadow-lg text-ivory border border-gold/20 self-start">
+                        <div class="flex items-center justify-between border-b border-navy-light pb-4 mb-6">
+                            <h3 class="font-cinzel text-base font-bold tracking-wider uppercase text-gold"><i class="fa-solid fa-sliders mr-2"></i> Refine Vault</h3>
+                        </div>
+
+                        <!-- Gender Filter -->
+                        <div class="mb-6">
+                            <label class="block font-cinzel text-xs text-gold uppercase tracking-widest mb-3">Audience</label>
+                            <div class="space-y-2 font-sans text-xs">
+                                <label class="flex items-center space-x-2 cursor-pointer hover:text-gold">
+                                    <input type="radio" name="gender" value="All" checked onchange="handleFilterChange()" class="accent-gold">
+                                    <span>All Collection</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer hover:text-gold">
+                                    <input type="radio" name="gender" value="Men" onchange="handleFilterChange()" class="accent-gold">
+                                    <span>Men's Timepieces</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer hover:text-gold">
+                                    <input type="radio" name="gender" value="Women" onchange="handleFilterChange()" class="accent-gold">
+                                    <span>Women's Timepieces</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer hover:text-gold">
+                                    <input type="radio" name="gender" value="Children" onchange="handleFilterChange()" class="accent-gold">
+                                    <span>Children's Timepieces</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Movement Filter -->
+                        <div class="mb-6 border-t border-navy-light pt-4">
+                            <label class="block font-cinzel text-xs text-gold uppercase tracking-widest mb-3">Movement Type</label>
+                            <select id="movement-filter" onchange="handleFilterChange()" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-xs text-ivory focus:outline-none focus:border-gold">
+                                <option value="All">All Movements</option>
+                                <option value="Automatic">Automatic (Mechanical)</option>
+                                <option value="Quartz">Precision Quartz</option>
+                            </select>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="mb-6 border-t border-navy-light pt-4">
+                            <label class="block font-cinzel text-xs text-gold uppercase tracking-widest mb-3">Style / Category</label>
+                            <select id="category-filter" onchange="handleFilterChange()" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-xs text-ivory focus:outline-none focus:border-gold">
+                                <option value="All">All Categories</option>
+                                <option value="Chronograph">Chronograph</option>
+                                <option value="Dress">Dress & Tuxedo</option>
+                                <option value="Sports">Sports & Diver</option>
+                                <option value="Luxury">Luxury Complication</option>
+                                <option value="Jewellery">Jewellery & Diamond</option>
+                            </select>
+                        </div>
+
+                        <!-- Price Slider -->
+                        <div class="mb-6 border-t border-navy-light pt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-cinzel text-xs text-gold uppercase tracking-widest">Max Price</label>
+                                <span id="price-slider-value" class="font-sans text-xs text-ivory font-bold">₹7,00,000</span>
+                            </div>
+                            <input type="range" id="price-range" min="10000" max="700000" step="10000" value="700000" oninput="updatePriceSlider(this.value)" class="w-full accent-gold bg-navy-dark h-1.5 rounded cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-ivory/50 mt-1">
+                                <span>₹10,000</span>
+                                <span>₹7,00,000</span>
+                            </div>
+                        </div>
+
+                        <!-- Sort Order -->
+                        <div class="border-t border-navy-light pt-4">
+                            <label class="block font-cinzel text-xs text-gold uppercase tracking-widest mb-3">Sort By</label>
+                            <select id="sort-order" onchange="handleFilterChange()" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-xs text-ivory focus:outline-none focus:border-gold">
+                                <option value="featured">Featured Collection</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="newest">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </aside>
+
+                    <!-- Product Grid Output -->
+                    <div class="lg:col-span-3">
+                        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Dynamic Products injected by Javascript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIMITED EDITION "VAULT COLLECTION" SECTION -->
+        <section id="vault-limited" class="py-20 bg-navy-dark text-ivory relative overflow-hidden border-y border-gold/30">
+            <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block px-3 py-1 bg-gold/20 border border-gold text-gold font-cinzel text-[10px] uppercase tracking-[0.3em] rounded mb-4">EXCLUSIVE LIMITED RELEASE</span>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-bold mb-4 leading-tight">
+                        The Masterpiece <br><span class="gold-gradient-text">Tourbillon 1926</span>
+                    </h2>
+                    <p class="font-cormorant text-xl italic text-ivory/80 mb-6">
+                        Only 50 individually numbered references manufactured globally. Featuring an exquisite hand-carved skeleton movement and grade 5 titanium case.
+                    </p>
+
+                    <!-- Countdown Timer -->
+                    <div class="mb-8">
+                        <span class="block font-cinzel text-xs text-gold uppercase tracking-widest mb-3">Private Reservation Closes In:</span>
+                        <div class="grid grid-cols-4 gap-3 max-w-md text-center">
+                            <div class="bg-navy p-3 rounded border border-gold/30">
+                                <span id="timer-days" class="font-cinzel text-2xl font-bold text-gold">02</span>
+                                <span class="block text-[10px] font-sans text-ivory/60 uppercase tracking-widest mt-1">Days</span>
+                            </div>
+                            <div class="bg-navy p-3 rounded border border-gold/30">
+                                <span id="timer-hours" class="font-cinzel text-2xl font-bold text-gold">14</span>
+                                <span class="block text-[10px] font-sans text-ivory/60 uppercase tracking-widest mt-1">Hours</span>
+                            </div>
+                            <div class="bg-navy p-3 rounded border border-gold/30">
+                                <span id="timer-mins" class="font-cinzel text-2xl font-bold text-gold">32</span>
+                                <span class="block text-[10px] font-sans text-ivory/60 uppercase tracking-widest mt-1">Mins</span>
+                            </div>
+                            <div class="bg-navy p-3 rounded border border-gold/30">
+                                <span id="timer-secs" class="font-cinzel text-2xl font-bold text-gold">18</span>
+                                <span class="block text-[10px] font-sans text-ivory/60 uppercase tracking-widest mt-1">Secs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="quickViewProduct(15)" class="px-8 py-4 bg-gold text-navy hover:bg-gold-soft font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all shadow-xl">
+                            Request Allocation (₹6,99,999)
+                        </button>
+                        <span class="font-cormorant text-sm italic text-ivory/60"><i class="fa-solid fa-lock text-gold mr-1"></i> Complimentary VIP White-Glove Hand Delivery</span>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-center">
+                    <div class="w-80 h-80 sm:w-96 sm:h-96 rounded-full border-2 border-gold/20 flex items-center justify-center p-4 relative">
+                        <div class="absolute inset-2 rounded-full border border-gold/40 animate-pulse"></div>
+                        <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80" alt="Masterpiece Tourbillon" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-gold/30">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WATCH INVESTMENT & PRICE CALCULATOR SECTION -->
+        <section id="calculator" class="py-20 bg-ivory">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-gold font-semibold">HOROLOGY INTELLIGENCE</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl text-navy font-bold mt-2">Timepiece Valuation Calculators</h2>
+                    <p class="font-cormorant text-lg text-slate-custom italic mt-2">Evaluate future appreciation values and analyze exact landed purchase totals.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Calculator 1: Investment Appreciation -->
+                    <div class="bg-navy text-ivory p-8 rounded-lg shadow-xl border border-gold/30">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <i class="fa-solid fa-chart-line text-gold text-2xl"></i>
+                            <h3 class="font-cinzel text-xl font-bold">Watch Investment Appreciation</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Initial Purchase Price (₹)</label>
+                                <input type="number" id="calc-initial" value="250000" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Est. Annual Appreciation (%)</label>
+                                    <input type="number" id="calc-rate" value="6.5" step="0.1" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                                </div>
+                                <div>
+                                    <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Holding Period (Years)</label>
+                                    <input type="number" id="calc-years" value="5" min="1" max="30" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                                </div>
+                            </div>
+
+                            <button onclick="calculateInvestment()" class="w-full mt-2 py-3 bg-gold text-navy font-sans text-xs uppercase tracking-[0.2em] font-bold rounded hover:bg-gold-soft transition-all">
+                                Calculate Projected Value
+                            </button>
+
+                            <div id="calc-results" class="mt-6 p-4 bg-navy-dark rounded border border-gold/20 space-y-2">
+                                <div class="flex justify-between items-center text-sm">
+                                    <span class="text-ivory/70">Projected Future Value:</span>
+                                    <span id="calc-future-val" class="font-cinzel font-bold text-gold text-lg">₹3,42,522</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-ivory/70">Estimated Profit Gain:</span>
+                                    <span id="calc-profit-val" class="font-sans font-semibold text-emerald-400">+₹92,522</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-ivory/70">Total Return:</span>
+                                    <span id="calc-return-val" class="font-sans font-semibold text-gold">+37.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator 2: Watch Landed Price Breakdown -->
+                    <div class="bg-navy text-ivory p-8 rounded-lg shadow-xl border border-gold/30">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <i class="fa-solid fa-calculator text-gold text-2xl"></i>
+                            <h3 class="font-cinzel text-xl font-bold">Landed Price Breakdown</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Base Timepiece Retail (₹)</label>
+                                <input type="number" id="price-base" value="124999" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Promo Discount (%)</label>
+                                    <input type="number" id="price-discount" value="10" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                                </div>
+                                <div>
+                                    <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Applicable GST (%)</label>
+                                    <input type="number" id="price-gst" value="18" readonly class="w-full bg-navy-dark/60 border border-gold/10 rounded py-2 px-3 text-sm text-ivory/60 cursor-not-allowed">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block font-sans text-xs text-ivory/80 uppercase tracking-wider mb-1">Insured Shipping Tier</label>
+                                <select id="price-shipping" class="w-full bg-navy-dark border border-gold/30 rounded py-2 px-3 text-sm text-ivory focus:outline-none focus:border-gold">
+                                    <option value="0">Complimentary Over ₹25,000 (₹0)</option>
+                                    <option value="499">Standard Express (₹499)</option>
+                                    <option value="1499">Insured Armored Delivery (₹1,499)</option>
+                                </select>
+                            </div>
+
+                            <button onclick="calculateLandedPrice()" class="w-full mt-2 py-3 bg-gold text-navy font-sans text-xs uppercase tracking-[0.2em] font-bold rounded hover:bg-gold-soft transition-all">
+                                Compute Final Invoice Total
+                            </button>
+
+                            <div id="landed-results" class="mt-6 p-4 bg-navy-dark rounded border border-gold/20 space-y-2 text-xs">
+                                <div class="flex justify-between text-ivory/70">
+                                    <span>Subtotal After Discount:</span>
+                                    <span id="landed-subtotal">₹1,12,499</span>
+                                </div>
+                                <div class="flex justify-between text-ivory/70">
+                                    <span>GST Amount (18%):</span>
+                                    <span id="landed-gst">₹20,250</span>
+                                </div>
+                                <div class="flex justify-between font-cinzel font-bold text-gold text-base pt-2 border-t border-navy-light">
+                                    <span>Final Payable Amount:</span>
+                                    <span id="landed-total">₹1,32,749</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND STORY SECTION -->
+        <section id="story" class="py-24 bg-navy-dark text-ivory relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Watchmaker at work" class="rounded shadow-2xl border border-gold/30">
+                    <div class="absolute -bottom-6 -right-6 hidden sm:block bg-navy p-6 rounded border border-gold/40 max-w-xs shadow-xl">
+                        <span class="font-cinzel text-gold text-2xl font-bold">100%</span>
+                        <p class="font-cormorant text-sm italic text-ivory/80">Hand-assembled and regulated by master horologists in Geneva.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="font-cinzel text-xs uppercase tracking-[0.4em] text-gold font-semibold">OUR HERITAGE</span>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-bold leading-tight">Born From a Love of Time</h2>
+                    <p class="font-cormorant text-xl italic text-ivory/80 leading-relaxed">
+                        The Horology Vault was established with a single vision: to celebrate the sanctity of time through extraordinary mechanical art. We curate timepieces that transcend mere utility, standing as heirlooms of personal legacy.
+                    </p>
+                    <p class="font-sans text-sm text-ivory/70 leading-relaxed">
+                        Every timepiece entering our Vault undergoes rigorous 21-point chronograph calibration and pressure testing to ensure flawless accuracy across generations.
+                    </p>
+                    <div class="pt-4 border-t border-navy-light flex items-center space-x-6">
+                        <div>
+                            <span class="font-cinzel text-2xl font-bold text-gold">2026</span>
+                            <span class="block text-[10px] font-sans uppercase tracking-widest text-ivory/60">Curated Legacy</span>
+                        </div>
+                        <div class="w-px h-10 bg-gold/30"></div>
+                        <div>
+                            <span class="font-cinzel text-2xl font-bold text-gold">50,000+</span>
+                            <span class="block text-[10px] font-sans uppercase tracking-widest text-ivory/60">Connoisseurs Served</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="py-20 bg-ivory-light border-t border-borderLight">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-gold font-semibold">CONNOISSEUR VOICES</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl text-navy font-bold mt-2">Endorsed By Horologists</h2>
+                    <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-ivory p-8 rounded shadow border border-borderLight flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-xs mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-cormorant italic text-lg text-slate-custom mb-6">
+                                "An extraordinary buying experience. The Sovereign Chronograph arrived in a hand-crafted leather vault box with full serial authentication."
+                            </p>
+                        </div>
+                        <div class="border-t border-borderLight pt-4">
+                            <h4 class="font-cinzel font-bold text-navy text-sm">Vikramaditya S.</h4>
+                            <span class="text-xs text-slate-custom">Mumbai • Sovereign Royal Owner</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-ivory p-8 rounded shadow border border-borderLight flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-xs mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-cormorant italic text-lg text-slate-custom mb-6">
+                                "The Celestia Tourbillon is even more mesmerizing in person. White-glove insured delivery reached my home in Bangalore within 24 hours."
+                            </p>
+                        </div>
+                        <div class="border-t border-borderLight pt-4">
+                            <h4 class="font-cinzel font-bold text-navy text-sm">Ananya R.</h4>
+                            <span class="text-xs text-slate-custom">Bangalore • Celestia Tourbillon Owner</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-ivory p-8 rounded shadow border border-borderLight flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-xs mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="font-cormorant italic text-lg text-slate-custom mb-6">
+                                "Their valuation calculator proved spot-on regarding my Vintage Legacy purchase. Impeccable customer service from start to finish."
+                            </p>
+                        </div>
+                        <div class="border-t border-borderLight pt-4">
+                            <h4 class="font-cinzel font-bold text-navy text-sm">Rajesh K.</h4>
+                            <span class="text-xs text-slate-custom">New Delhi • Vintage Legacy Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="py-16 bg-navy text-ivory border-t border-gold/20">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <span class="font-cinzel text-xs uppercase tracking-[0.4em] text-gold font-semibold">ENTER THE VAULT</span>
+                <h2 class="font-cinzel text-3xl font-bold mt-2 mb-4">Private Concierge Invitations</h2>
+                <p class="font-cormorant italic text-lg text-ivory/80 max-w-xl mx-auto mb-8">
+                    Receive private allocations, private vault access, limited release notifications, and horological journal insights.
+                </p>
+
+                <form onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email address..." required class="flex-1 bg-navy-dark border border-gold/30 rounded py-3 px-4 text-sm text-ivory placeholder-ivory/40 focus:outline-none focus:border-gold">
+                    <button type="submit" class="py-3 px-8 bg-gold text-navy font-sans text-xs uppercase tracking-[0.2em] font-bold rounded hover:bg-gold-soft transition-all">
+                        Join Vault
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-dark text-ivory/80 border-t border-gold/20 pt-16 pb-12 font-sans text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-navy-light">
+            
+            <!-- Col 1: Brand -->
+            <div class="lg:col-span-2 space-y-4">
+                <a href="#" class="block">
+                    <span class="font-cinzel text-2xl font-bold text-ivory tracking-widest">THE HOROLOGY VAULT</span>
+                    <span class="block font-cormorant italic text-gold text-sm">TIME, REFINED.</span>
+                </a>
+                <p class="text-ivory/60 leading-relaxed max-w-sm">
+                    A curated Swiss boutique destination for rare mechanical complications, chronographs, and haute horology timepieces.
+                </p>
+                <div class="flex space-x-4 text-gold text-base pt-2">
+                    <a href="#" class="hover:text-ivory transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-ivory transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-ivory transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" class="hover:text-ivory transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div>
+                <h4 class="font-cinzel text-gold text-sm font-bold uppercase tracking-widest mb-4">Timepieces</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="#shop" onclick="filterByGender('Men')" class="hover:text-gold transition-colors">Men's Collection</a></li>
+                    <li><a href="#shop" onclick="filterByGender('Women')" class="hover:text-gold transition-colors">Women's Collection</a></li>
+                    <li><a href="#shop" onclick="filterByGender('Children')" class="hover:text-gold transition-colors">Junior Vault</a></li>
+                    <li><a href="#shop" onclick="filterByCategory('Automatic')" class="hover:text-gold transition-colors">Automatic Complications</a></li>
+                    <li><a href="#vault-limited" class="hover:text-gold transition-colors">Limited Editions</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Client Care -->
+            <div>
+                <h4 class="font-cinzel text-gold text-sm font-bold uppercase tracking-widest mb-4">Concierge Care</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="#" class="hover:text-gold transition-colors">Private Appointments</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Insured Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">30-Day Returns</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">2-Year International Warranty</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Watch Servicing & Care</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Corporate -->
+            <div>
+                <h4 class="font-cinzel text-gold text-sm font-bold uppercase tracking-widest mb-4">The Vault</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="#story" class="hover:text-gold transition-colors">Our Heritage</a></li>
+                    <li><a href="#calculator" class="hover:text-gold transition-colors">Valuation Calculator</a></li>
+                    <li><a href="#" onclick="toggleAdminModal()" class="hover:text-gold transition-colors">Demo Sales Report</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-gold transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 flex flex-col md:flex-row justify-between items-center text-ivory/50 text-[11px]">
+            <p>© 2026 The Horology Vault. All Rights Reserved. Crafted for Horological Connoisseurs.</p>
+            <p class="mt-2 md:mt-0"><i class="fa-solid fa-shield-halved text-gold mr-1"></i> SSL 256-Bit Encrypted Demo Transaction</p>
+        </div>
+    </footer>
+
+    <!-- PRODUCT QUICK VIEW MODAL -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 bg-navy-dark/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <div class="bg-navy border border-gold/30 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto text-ivory relative p-6 sm:p-8 shadow-2xl">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-ivory hover:text-gold text-xl focus:outline-none z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quickview-content">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CART DRAWER MODAL -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-navy-dark/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 max-w-md w-full bg-navy text-ivory shadow-2xl border-l border-gold/30 transform translate-x-full transition-transform duration-300 flex flex-col z-50">
+            <!-- Header -->
+            <div class="p-6 border-b border-navy-light flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping text-gold text-lg"></i>
+                    <h3 class="font-cinzel text-lg font-bold tracking-wider">Your Vault Bag</h3>
+                </div>
+                <button onclick="toggleCartDrawer()" class="text-ivory hover:text-gold text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Items Container -->
+            <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-navy-light">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Coupon & Footer Calculations -->
+            <div class="p-6 border-t border-navy-light bg-navy-dark space-y-3">
+                
+                <!-- Coupon Input -->
+                <div class="flex gap-2">
+                    <input type="text" id="coupon-code-input" placeholder="Coupon Code (e.g. HOROLOGY10)" class="flex-1 bg-navy border border-gold/30 rounded py-1.5 px-3 text-xs text-ivory uppercase focus:outline-none focus:border-gold">
+                    <button onclick="applyCouponCode()" class="px-3 py-1.5 bg-gold text-navy font-bold text-xs rounded hover:bg-gold-soft">Apply</button>
+                </div>
+                <div id="coupon-message" class="text-[11px]"></div>
+
+                <!-- Totals Breakdown -->
+                <div class="space-y-1.5 text-xs text-ivory/80 pt-2">
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal-display">₹0</span>
+                    </div>
+                    <div class="flex justify-between text-emerald-400">
+                        <span>Discount:</span>
+                        <span id="cart-discount-display">-₹0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Est. GST (18%):</span>
+                        <span id="cart-gst-display">₹0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Insured Shipping:</span>
+                        <span id="cart-shipping-display" class="text-gold">Free</span>
+                    </div>
+                    <div class="flex justify-between font-cinzel font-bold text-gold text-lg pt-2 border-t border-navy-light">
+                        <span>Total Payable:</span>
+                        <span id="cart-grandtotal-display">₹0</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                    <button onclick="toggleCartDrawer()" class="py-3 border border-gold/40 text-ivory font-bold text-xs uppercase rounded hover:bg-gold/10">Continue</button>
+                    <button onclick="openCheckoutModal()" class="py-3 bg-gold text-navy font-bold text-xs uppercase rounded hover:bg-gold-soft shadow-lg">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER MODAL -->
+    <div id="wishlist-drawer-overlay" class="fixed inset-0 z-50 bg-navy-dark/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="wishlist-drawer" class="fixed top-0 right-0 bottom-0 max-w-md w-full bg-navy text-ivory shadow-2xl border-l border-gold/30 transform translate-x-full transition-transform duration-300 flex flex-col z-50">
+            <div class="p-6 border-b border-navy-light flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-heart text-gold text-lg"></i>
+                    <h3 class="font-cinzel text-lg font-bold tracking-wider">Saved Timepieces</h3>
+                </div>
+                <button onclick="toggleWishlistDrawer()" class="text-ivory hover:text-gold text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="wishlist-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-navy-dark/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <div class="bg-navy border border-gold/30 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto text-ivory relative p-6 sm:p-8 shadow-2xl">
+            
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-ivory hover:text-gold text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="font-cinzel text-gold text-xs uppercase tracking-[0.3em]">SECURE CHECKOUT</span>
+                <h2 class="font-cinzel text-2xl font-bold mt-1">Acquire Timepieces</h2>
+                <p class="text-xs text-ivory/60 mt-1"><i class="fa-solid fa-circle-info text-gold mr-1"></i> Demo checkout — no real payment will be processed.</p>
+            </div>
+
+            <!-- Steps Indicator -->
+            <div class="flex justify-between items-center mb-8 max-w-md mx-auto border-b border-navy-light pb-4 text-xs">
+                <div id="step-1-indicator" class="font-bold text-gold flex items-center gap-1">1. Contact & Shipping</div>
+                <div id="step-2-indicator" class="text-ivory/40 flex items-center gap-1">2. Payment Method</div>
+            </div>
+
+            <!-- Checkout Form -->
+            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
+                
+                <!-- STEP 1: Customer Info & Address -->
+                <div id="checkout-step-1" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">First Name *</label>
+                            <input type="text" required id="chk-fname" value="Alexander" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">Last Name *</label>
+                            <input type="text" required id="chk-lname" value="Vance" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">Email Address *</label>
+                            <input type="email" required id="chk-email" value="alexander.vance@example.com" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">Mobile Phone *</label>
+                            <input type="tel" required id="chk-phone" value="+91 98765 43210" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gold uppercase tracking-wider mb-1">Shipping Street Address *</label>
+                        <input type="text" required id="chk-address" value="42 Vault Manor, Marine Drive" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">City *</label>
+                            <input type="text" required id="chk-city" value="Mumbai" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">State *</label>
+                            <input type="text" required id="chk-state" value="Maharashtra" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gold uppercase tracking-wider mb-1">PIN Code *</label>
+                            <input type="text" required id="chk-pin" value="400021" class="w-full bg-navy-dark border border-gold/30 rounded p-2.5 text-xs text-ivory focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <!-- Shipping Tier Selection -->
+                    <div>
+                        <label class="block text-xs text-gold uppercase tracking-wider mb-2">Delivery Tier Selection</label>
+                        <div class="space-y-2 text-xs">
+                            <label class="flex items-center justify-between p-3 bg-navy-dark rounded border border-gold/30 cursor-pointer">
+                                <span class="flex items-center space-x-2">
+                                    <input type="radio" name="delivery-tier" value="standard" checked onchange="updateCheckoutDelivery(0)" class="accent-gold">
+                                    <span>Complimentary Insured Express (2-3 Business Days)</span>
+                                </span>
+                                <span class="text-gold font-bold">FREE</span>
+                            </label>
+                            <label class="flex items-center justify-between p-3 bg-navy-dark rounded border border-gold/30 cursor-pointer">
+                                <span class="flex items-center space-x-2">
+                                    <input type="radio" name="delivery-tier" value="express" onchange="updateCheckoutDelivery(999)" class="accent-gold">
+                                    <span>Priority Next-Day Armored Courier</span>
+                                </span>
+                                <span class="text-gold font-bold">₹999</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="goToCheckoutStep(2)" class="w-full py-3 bg-gold text-navy font-bold text-xs uppercase rounded hover:bg-gold-soft transition-all">
+                        Proceed To Payment Options <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- STEP 2: Payment Details -->
+                <div id="checkout-step-2" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-xs text-gold uppercase tracking-wider mb-2">Select Payment Option</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4 text-xs">
+                            <button type="button" onclick="selectPaymentTab('card')" id="pay-tab-card" class="py-2.5 px-3 border border-gold bg-gold text-navy font-bold rounded text-center">Card</button>
+                            <button type="button" onclick="selectPaymentTab('upi')" id="pay-tab-upi" class="py-2.5 px-3 border border-gold/30 text-ivory font-bold rounded text-center hover:border-gold">UPI / QR</button>
+                            <button type="button" onclick="selectPaymentTab('netbank')" id="pay-tab-netbank" class="py-2.5 px-3 border border-gold/30 text-ivory font-bold rounded text-center hover:border-gold">NetBanking</button>
+                            <button type="button" onclick="selectPaymentTab('cod')" id="pay-tab-cod" class="py-2.5 px-3 border border-gold/30 text-ivory font-bold rounded text-center hover:border-gold">COD</button>
+                        </div>
+                    </div>
+
+                    <!-- Card Form -->
+                    <div id="pay-form-card" class="space-y-3 bg-navy-dark p-4 rounded border border-gold/20">
+                        <div>
+                            <label class="block text-[10px] text-ivory/70 uppercase mb-1">Card Number</label>
+                            <input type="text" placeholder="4532 •••• •••• 8892" class="w-full bg-navy border border-gold/30 rounded p-2 text-xs text-ivory focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] text-ivory/70 uppercase mb-1">Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" class="w-full bg-navy border border-gold/30 rounded p-2 text-xs text-ivory focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-ivory/70 uppercase mb-1">CVV Code</label>
+                                <input type="password" placeholder="•••" class="w-full bg-navy border border-gold/30 rounded p-2 text-xs text-ivory focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPI Form -->
+                    <div id="pay-form-upi" class="hidden space-y-3 bg-navy-dark p-4 rounded border border-gold/20 text-center">
+                        <i class="fa-solid fa-qrcode text-gold text-4xl mb-1"></i>
+                        <p class="text-xs text-ivory/80">Enter your UPI VPA ID (e.g. name@okhdfcbank) or scan QR during verification.</p>
+                        <input type="text" placeholder="vault.connoisseur@upi" class="w-full bg-navy border border-gold/30 rounded p-2 text-xs text-ivory focus:outline-none">
+                    </div>
+
+                    <!-- NetBank Form -->
+                    <div id="pay-form-netbank" class="hidden space-y-3 bg-navy-dark p-4 rounded border border-gold/20">
+                        <label class="block text-[10px] text-ivory/70 uppercase mb-1">Select Bank</label>
+                        <select class="w-full bg-navy border border-gold/30 rounded p-2 text-xs text-ivory focus:outline-none">
+                            <option>HDFC Bank - Private Banking</option>
+                            <option>ICICI Bank - Wealth Management</option>
+                            <option>State Bank of India</option>
+                            <option>Axis Bank - Burgundy</option>
+                        </select>
+                    </div>
+
+                    <!-- COD Form -->
+                    <div id="pay-form-cod" class="hidden space-y-2 bg-navy-dark p-4 rounded border border-gold/20 text-xs text-ivory/80">
+                        <p><i class="fa-solid fa-truck-ramp-box text-gold mr-1"></i> Cash / Card on Delivery is available for order totals up to ₹2,00,000 with phone confirmation.</p>
+                    </div>
+
+                    <!-- Summary box -->
+                    <div class="bg-navy-dark p-4 rounded border border-gold/30 space-y-1 text-xs">
+                        <div class="flex justify-between text-ivory/70">
+                            <span>Order Total Payable:</span>
+                            <span id="chk-summary-total" class="font-bold text-gold text-sm">₹0</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button type="button" onclick="goToCheckoutStep(1)" class="w-1/3 py-3 border border-gold/40 text-ivory font-bold text-xs uppercase rounded hover:bg-gold/10">Back</button>
+                        <button type="submit" class="w-2/3 py-3 bg-gold text-navy font-bold text-xs uppercase rounded hover:bg-gold-soft transition-all shadow-xl">
+                            Place Secure Order <i class="fa-solid fa-lock ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION MODAL -->
+    <div id="confirmation-modal" class="fixed inset-0 z-50 bg-navy-dark/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <div class="bg-navy border border-gold/40 rounded-lg max-w-xl w-full text-ivory relative p-8 shadow-2xl text-center">
+            <div class="w-16 h-16 rounded-full bg-gold/20 border border-gold text-gold flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <span class="font-cinzel text-gold text-xs uppercase tracking-[0.3em]">ACQUISITION COMPLETE</span>
+            <h2 class="font-cinzel text-3xl font-bold mt-1">ORDER CONFIRMED</h2>
+            <p class="font-cormorant italic text-lg text-ivory/80 mt-2">Thank you for choosing The Horology Vault. Your luxury timepiece is being calibrated and packaged.</p>
+
+            <div id="confirmation-details" class="my-6 p-4 bg-navy-dark rounded border border-gold/20 text-left text-xs space-y-2 font-sans">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button onclick="printCurrentInvoice()" class="flex-1 py-3 border border-gold text-gold font-bold text-xs uppercase rounded hover:bg-gold hover:text-navy transition-all">
+                    <i class="fa-solid fa-print mr-1"></i> Print / Download Invoice
+                </button>
+                <button onclick="closeConfirmationAndReset()" class="flex-1 py-3 bg-gold text-navy font-bold text-xs uppercase rounded hover:bg-gold-soft transition-all">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINTABLE INVOICE TEMPLATE (Hidden until print trigger) -->
+    <div id="printable-invoice" class="hidden p-8 max-w-3xl mx-auto bg-white text-navy font-sans text-xs">
+        <!-- Injected dynamically before print -->
+    </div>
+
+    <!-- DEMO ADMIN SALES REPORT MODAL -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-navy-dark/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <div class="bg-navy border border-gold/30 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto text-ivory relative p-6 sm:p-8 shadow-2xl">
+            
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-ivory hover:text-gold text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-6 border-b border-navy-light pb-4">
+                <i class="fa-solid fa-chart-pie text-gold text-2xl"></i>
+                <div>
+                    <h2 class="font-cinzel text-xl font-bold text-gold">DEMO ADMIN SALES REPORT</h2>
+                    <p class="text-xs text-ivory/60">Frontend simulation metrics based on store activity & database snapshot.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-navy-dark p-4 rounded border border-gold/20 text-center">
+                    <span class="block text-[10px] uppercase text-ivory/60">Total Revenue</span>
+                    <span class="font-cinzel text-xl font-bold text-gold mt-1 block">₹18,45,750</span>
+                </div>
+                <div class="bg-navy-dark p-4 rounded border border-gold/20 text-center">
+                    <span class="block text-[10px] uppercase text-ivory/60">Orders Executed</span>
+                    <span class="font-cinzel text-xl font-bold text-gold mt-1 block">128</span>
+                </div>
+                <div class="bg-navy-dark p-4 rounded border border-gold/20 text-center">
+                    <span class="block text-[10px] uppercase text-ivory/60">Timepieces Sold</span>
+                    <span class="font-cinzel text-xl font-bold text-gold mt-1 block">214</span>
+                </div>
+                <div class="bg-navy-dark p-4 rounded border border-gold/20 text-center">
+                    <span class="block text-[10px] uppercase text-ivory/60">Avg. Order Value</span>
+                    <span class="font-cinzel text-xl font-bold text-gold mt-1 block">₹1,44,200</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- SVG Chart Revenue -->
+                <div class="bg-navy-dark p-4 rounded border border-gold/20">
+                    <h3 class="font-cinzel text-xs font-bold text-gold uppercase tracking-wider mb-3">Monthly Revenue Velocity</h3>
+                    <div class="h-40 flex items-end justify-between gap-2 pt-4 px-2">
+                        <div class="flex-1 bg-gold/20 hover:bg-gold h-[40%] rounded-t relative group"><span class="absolute -top-5 text-[9px] left-0 right-0 text-center hidden group-hover:block text-gold">12L</span></div>
+                        <div class="flex-1 bg-gold/20 hover:bg-gold h-[60%] rounded-t relative group"><span class="absolute -top-5 text-[9px] left-0 right-0 text-center hidden group-hover:block text-gold">14L</span></div>
+                        <div class="flex-1 bg-gold/20 hover:bg-gold h-[50%] rounded-t relative group"><span class="absolute -top-5 text-[9px] left-0 right-0 text-center hidden group-hover:block text-gold">13L</span></div>
+                        <div class="flex-1 bg-gold/20 hover:bg-gold h-[85%] rounded-t relative group"><span class="absolute -top-5 text-[9px] left-0 right-0 text-center hidden group-hover:block text-gold">18L</span></div>
+                        <div class="flex-1 bg-gold h-[100%] rounded-t relative group"><span class="absolute -top-5 text-[9px] left-0 right-0 text-center block text-gold font-bold">22L</span></div>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-ivory/50 mt-2">
+                        <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct (Current)</span>
+                    </div>
+                </div>
+
+                <!-- Top Products breakdown -->
+                <div class="bg-navy-dark p-4 rounded border border-gold/20">
+                    <h3 class="font-cinzel text-xs font-bold text-gold uppercase tracking-wider mb-3">Top Performing Complications</h3>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex justify-between items-center border-b border-navy-light pb-1.5">
+                            <span>Sovereign Chronograph Royal</span>
+                            <span class="font-bold text-gold">34 Units</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-navy-light pb-1.5">
+                            <span>Celestia Tourbillon Rose</span>
+                            <span class="font-bold text-gold">18 Units</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-navy-light pb-1.5">
+                            <span>Nautica Aqua Diver Pro</span>
+                            <span class="font-bold text-gold">42 Units</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span>Patrimony Heritage Gold</span>
+                            <span class="font-bold text-gold">29 Units</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-[11px] text-ivory/40 text-center italic">This dashboard presents demonstration metrics for internal frontend presentation purposes.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // STORE CONFIGURATION OBJECT
+        const STORE_CONFIG = {
+            currency: "INR",
+            currencySymbol: "₹",
+            gstRate: 0.18,
+            freeShippingThreshold: 25000,
+            standardShipping: 499,
+            expressShipping: 999,
+            premiumShipping: 1499
+        };
+
+        // 20 REALISTIC LUXURY WATCHES DATABASE
+        const productsData = [
+            {
+                id: 1,
+                name: "Sovereign Chronograph Royal",
+                brand: "Vacheron & Vault",
+                category: "Chronograph",
+                gender: "Men",
+                price: 189999,
+                originalPrice: 219999,
+                discount: 13,
+                rating: 4.9,
+                reviews: 42,
+                sku: "THV-M-101",
+                stock: 5,
+                badge: "BESTSELLER",
+                movement: "Automatic",
+                caseMaterial: "316L Stainless Steel",
+                caseSize: "42mm",
+                strapMaterial: "Alligator Leather",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "Hand-finished automatic chronograph featuring a dark midnight dial, triple register display, and anti-reflective sapphire crystal.",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                name: "Celestia Tourbillon Rose",
+                brand: "Aurum Horology",
+                category: "Luxury",
+                gender: "Women",
+                price: 499999,
+                originalPrice: 549999,
+                discount: 9,
+                rating: 5.0,
+                reviews: 19,
+                sku: "THV-W-202",
+                stock: 2,
+                badge: "EXCLUSIVE",
+                movement: "Automatic",
+                caseMaterial: "18k Rose Gold",
+                caseSize: "36mm",
+                strapMaterial: "Satin Silk",
+                waterResistance: "50m",
+                warranty: "2 Years International",
+                description: "Exquisite tourbillon complications encased in 18k rose gold with a mother-of-pearl diamond inlaid dial.",
+                image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                name: "Nautica Aqua Diver Pro",
+                brand: "Mariner Geneve",
+                category: "Sports",
+                gender: "Men",
+                price: 74999,
+                originalPrice: 89999,
+                discount: 16,
+                rating: 4.8,
+                reviews: 87,
+                sku: "THV-M-103",
+                stock: 12,
+                badge: "POPULAR",
+                movement: "Automatic",
+                caseMaterial: "Titanium Grade 5",
+                caseSize: "44mm",
+                strapMaterial: "Vulcanized Rubber",
+                waterResistance: "300m",
+                warranty: "2 Years International",
+                description: "Professional deep-sea diving instrument with ceramic unidirectional bezel and luminous Super-LumiNova markers.",
+                image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                name: "Patrimony Heritage Gold",
+                brand: "Geneva Vault",
+                category: "Dress",
+                gender: "Men",
+                price: 249999,
+                originalPrice: 279999,
+                discount: 10,
+                rating: 4.9,
+                reviews: 31,
+                sku: "THV-M-104",
+                stock: 4,
+                badge: "NEW",
+                movement: "Automatic",
+                caseMaterial: "Yellow Gold PVD",
+                caseSize: "40mm",
+                strapMaterial: "Calfskin Leather",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Ultra-slim classic dress watch engineered for tuxedo galas and formal elegance.",
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                name: "Horizon Minimalist Quartz",
+                brand: "Nordic Horology",
+                category: "Dress",
+                gender: "Women",
+                price: 24999,
+                originalPrice: 29999,
+                discount: 16,
+                rating: 4.7,
+                reviews: 53,
+                sku: "THV-W-205",
+                stock: 18,
+                badge: "SALE",
+                movement: "Quartz",
+                caseMaterial: "Stainless Steel",
+                caseSize: "32mm",
+                strapMaterial: "Mesh Bracelet",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Clean Scandinavian aesthetics paired with Swiss quartz movement for understated grace.",
+                image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 6,
+                name: "Junior Horologist Cadet",
+                brand: "Little Vault",
+                category: "Dress",
+                gender: "Children",
+                price: 14999,
+                originalPrice: 17999,
+                discount: 16,
+                rating: 4.9,
+                reviews: 28,
+                sku: "THV-C-301",
+                stock: 15,
+                badge: "JUNIOR",
+                movement: "Quartz",
+                caseMaterial: "Brushed Steel",
+                caseSize: "28mm",
+                strapMaterial: "Nylon NATO",
+                waterResistance: "50m",
+                warranty: "2 Years International",
+                description: "Handcrafted educational timepiece for young horology enthusiasts with high contrast dial clarity.",
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 7,
+                name: "Atelier Diamond Solitaire",
+                brand: "Aurum Horology",
+                category: "Jewellery",
+                gender: "Women",
+                price: 349999,
+                originalPrice: 389999,
+                discount: 10,
+                rating: 5.0,
+                reviews: 14,
+                sku: "THV-W-207",
+                stock: 3,
+                badge: "EXCLUSIVE",
+                movement: "Automatic",
+                caseMaterial: "White Gold",
+                caseSize: "34mm",
+                strapMaterial: "Jewelry Bracelet",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Surrounded by 48 VS1 brilliant-cut diamonds with an iridescent sunburst Guilloché dial.",
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 8,
+                name: "Chronos Titanium Perpetual",
+                brand: "Apex Geneva",
+                category: "Chronograph",
+                gender: "Men",
+                price: 299999,
+                originalPrice: 329999,
+                discount: 9,
+                rating: 4.9,
+                reviews: 38,
+                sku: "THV-M-108",
+                stock: 6,
+                badge: "NEW",
+                movement: "Automatic",
+                caseMaterial: "Titanium",
+                caseSize: "43mm",
+                strapMaterial: "Titanium Link",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "Perpetual calendar mechanics featuring leap year indicators and tachymeter bezel scale.",
+                image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 9,
+                name: "Phantom Black Ceramic",
+                brand: "Apex Geneva",
+                category: "Sports",
+                gender: "Men",
+                price: 124999,
+                originalPrice: 149999,
+                discount: 16,
+                rating: 4.8,
+                reviews: 64,
+                sku: "THV-M-109",
+                stock: 9,
+                badge: "BESTSELLER",
+                movement: "Automatic",
+                caseMaterial: "High-Tech Ceramic",
+                caseSize: "42mm",
+                strapMaterial: "Matte Ceramic",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "Stealth black matte ceramic case impervious to scratches, paired with smoked sapphire crystal.",
+                image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 10,
+                name: "Elegance Petite Steel",
+                brand: "Geneva Vault",
+                category: "Dress",
+                gender: "Women",
+                price: 39999,
+                originalPrice: 45999,
+                discount: 13,
+                rating: 4.6,
+                reviews: 41,
+                sku: "THV-W-210",
+                stock: 14,
+                badge: "POPULAR",
+                movement: "Quartz",
+                caseMaterial: "Stainless Steel",
+                caseSize: "28mm",
+                strapMaterial: "Steel Bracelet",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Graceful daily luxury crafted for wrist subtlety with Roman numeral markers.",
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 11,
+                name: "Vanguard GMT Master",
+                brand: "Mariner Geneve",
+                category: "Sports",
+                gender: "Men",
+                price: 159999,
+                originalPrice: 179999,
+                discount: 11,
+                rating: 4.9,
+                reviews: 72,
+                sku: "THV-M-111",
+                stock: 8,
+                badge: "NEW",
+                movement: "Automatic",
+                caseMaterial: "316L Steel",
+                caseSize: "41mm",
+                strapMaterial: "Oyster Steel",
+                waterResistance: "200m",
+                warranty: "2 Years International",
+                description: "Dual time-zone GMT complication with two-tone ceramic bezel for international jetsetters.",
+                image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 12,
+                name: "Young Explorer Cadet",
+                brand: "Little Vault",
+                category: "Sports",
+                gender: "Children",
+                price: 12499,
+                originalPrice: 14999,
+                discount: 16,
+                rating: 4.7,
+                reviews: 19,
+                sku: "THV-C-302",
+                stock: 20,
+                badge: "JUNIOR",
+                movement: "Quartz",
+                caseMaterial: "Polycarbonate",
+                caseSize: "30mm",
+                strapMaterial: "Silicone Strap",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "Shock-resistant and waterproof timekeeper designed for young adventures.",
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 13,
+                name: "Royal Oak Skeleton Special",
+                brand: "Vacheron & Vault",
+                category: "Luxury",
+                gender: "Men",
+                price: 449999,
+                originalPrice: 489999,
+                discount: 8,
+                rating: 5.0,
+                reviews: 23,
+                sku: "THV-M-113",
+                stock: 3,
+                badge: "LIMITED",
+                movement: "Automatic",
+                caseMaterial: "Forged Carbon",
+                caseSize: "43mm",
+                strapMaterial: "Rubber Hybrid",
+                waterResistance: "50m",
+                warranty: "2 Years International",
+                description: "Fully open-worked skeletal dial revealing hand-beveled gear trains and golden balance wheel.",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 14,
+                name: "Luna Moonphase Pearl",
+                brand: "Aurum Horology",
+                category: "Dress",
+                gender: "Women",
+                price: 89999,
+                originalPrice: 99999,
+                discount: 10,
+                rating: 4.8,
+                reviews: 36,
+                sku: "THV-W-214",
+                stock: 11,
+                badge: "BESTSELLER",
+                movement: "Automatic",
+                caseMaterial: "Rose Gold PVD",
+                caseSize: "34mm",
+                strapMaterial: "Alligator Leather",
+                waterResistance: "50m",
+                warranty: "2 Years International",
+                description: "Lyrical moonphase complication displayed over deep blue mother-of-pearl sky backdrop.",
+                image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 15,
+                name: "Masterpiece Tourbillon 1926",
+                brand: "Geneva Vault",
+                category: "Luxury",
+                gender: "Men",
+                price: 699999,
+                originalPrice: 750000,
+                discount: 6,
+                rating: 5.0,
+                reviews: 11,
+                sku: "THV-M-115",
+                stock: 1,
+                badge: "LIMITED",
+                movement: "Automatic",
+                caseMaterial: "Grade 5 Titanium",
+                caseSize: "44mm",
+                strapMaterial: "Hand-stitched Alligator",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "The pinnacle of horology. Limited to 50 pieces globally with flying tourbillon cage.",
+                image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 16,
+                name: "Alpine Sport Chrono",
+                brand: "Mariner Geneve",
+                category: "Chronograph",
+                gender: "Men",
+                price: 54999,
+                originalPrice: 64999,
+                discount: 15,
+                rating: 4.7,
+                reviews: 49,
+                sku: "THV-M-116",
+                stock: 16,
+                badge: "POPULAR",
+                movement: "Quartz",
+                caseMaterial: "Steel",
+                caseSize: "42mm",
+                strapMaterial: "Rubber",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "High precision 1/10th second chronograph built for motorsports timing.",
+                image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 17,
+                name: "Stella Diamond Blossom",
+                brand: "Aurum Horology",
+                category: "Jewellery",
+                gender: "Women",
+                price: 219999,
+                originalPrice: 249999,
+                discount: 12,
+                rating: 4.9,
+                reviews: 22,
+                sku: "THV-W-217",
+                stock: 5,
+                badge: "NEW",
+                movement: "Automatic",
+                caseMaterial: "18k Yellow Gold",
+                caseSize: "35mm",
+                strapMaterial: "Leather",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Floral skeleton movement framed by a double row of pave set diamonds.",
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 18,
+                name: "Vintage Legacy 1926",
+                brand: "Vacheron & Vault",
+                category: "Dress",
+                gender: "Men",
+                price: 112000,
+                originalPrice: 129000,
+                discount: 13,
+                rating: 4.8,
+                reviews: 35,
+                sku: "THV-M-118",
+                stock: 7,
+                badge: "BESTSELLER",
+                movement: "Automatic",
+                caseMaterial: "Bronze Alloy",
+                caseSize: "39mm",
+                strapMaterial: "Distressed Calfskin",
+                waterResistance: "50m",
+                warranty: "2 Years International",
+                description: "Develops a unique vintage patina over time with domed box sapphire crystal.",
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 19,
+                name: "Junior Timekeeper Color",
+                brand: "Little Vault",
+                category: "Dress",
+                gender: "Children",
+                price: 9999,
+                originalPrice: 11999,
+                discount: 16,
+                rating: 4.6,
+                reviews: 14,
+                sku: "THV-C-303",
+                stock: 25,
+                badge: "JUNIOR",
+                movement: "Quartz",
+                caseMaterial: "Resin",
+                caseSize: "28mm",
+                strapMaterial: "Soft Silicone",
+                waterResistance: "30m",
+                warranty: "2 Years International",
+                description: "Vibrant and easy-to-read watch hands created specifically for young minds.",
+                image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 20,
+                name: "Apex Carbon Racing",
+                brand: "Apex Geneva",
+                category: "Sports",
+                gender: "Men",
+                price: 175000,
+                originalPrice: 195000,
+                discount: 10,
+                rating: 4.9,
+                reviews: 40,
+                sku: "THV-M-120",
+                stock: 6,
+                badge: "NEW",
+                movement: "Automatic",
+                caseMaterial: "NTPT Carbon",
+                caseSize: "43mm",
+                strapMaterial: "Textured Rubber",
+                waterResistance: "100m",
+                warranty: "2 Years International",
+                description: "Ultralight carbon composite construction with racing red accents and column wheel chronograph.",
+                image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // GLOBAL APPLICATION STATE
+        let appState = {
+            cart: [],
+            wishlist: [],
+            appliedCoupon: null,
+            discountPercent: 0,
+            couponDiscountFlat: 0,
+            deliveryCharge: 0,
+            activeFilters: {
+                gender: 'All',
+                movement: 'All',
+                category: 'All',
+                maxPrice: 700000,
+                sort: 'featured'
+            },
+            currentHeroSlide: 0
+        };
+
+        // DOM READY INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load saved state
+            loadLocalStorageState();
+            
+            // Render Products
+            renderProducts();
+
+            // Setup Hero Slider Autoplay
+            initHeroSlider();
+
+            // Setup Countdown Timer
+            initCountdownTimer();
+
+            // Hide Preloader
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 700);
+                }
+            }, 800);
+        });
+
+        // LOCAL STORAGE
+        function loadLocalStorageState() {
+            try {
+                const savedCart = localStorage.getItem('thv_cart');
+                const savedWishlist = localStorage.getItem('thv_wishlist');
+                if (savedCart) appState.cart = JSON.parse(savedCart);
+                if (savedWishlist) appState.wishlist = JSON.parse(savedWishlist);
+                updateBadges();
+            } catch(e) {
+                console.error("Storage error:", e);
+            }
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem('thv_cart', JSON.stringify(appState.cart));
+                localStorage.setItem('thv_wishlist', JSON.stringify(appState.wishlist));
+                updateBadges();
+            } catch(e) {
+                console.error("Storage save error:", e);
+            }
+        }
+
+        function updateBadges() {
+            const cartBadge = document.getElementById('cart-badge');
+            const wishlistBadge = document.getElementById('wishlist-badge');
+            
+            const totalCartItems = appState.cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (cartBadge) {
+                cartBadge.innerText = totalCartItems;
+                cartBadge.style.opacity = totalCartItems > 0 ? '1' : '0';
+                cartBadge.style.transform = totalCartItems > 0 ? 'scale(1)' : 'scale(0)';
+            }
+
+            if (wishlistBadge) {
+                wishlistBadge.innerText = appState.wishlist.length;
+                wishlistBadge.style.opacity = appState.wishlist.length > 0 ? '1' : '0';
+                wishlistBadge.style.transform = appState.wishlist.length > 0 ? 'scale(1)' : 'scale(0)';
+            }
+        }
+
+        // FORMAT CURRENCY
+        function formatINR(amount) {
+            return '₹' + amount.toLocaleString('en-IN');
+        }
+
+        // HERO SLIDER LOGIC
+        function initHeroSlider() {
+            setInterval(() => {
+                nextHeroSlide();
+            }, 7000);
+        }
+
+        function showHeroSlide(index) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            if (!slides.length) return;
+
+            appState.currentHeroSlide = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === appState.currentHeroSlide ? '1' : '0';
+                slide.style.zIndex = i === appState.currentHeroSlide ? '10' : '0';
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === appState.currentHeroSlide) {
+                    dot.classList.remove('bg-ivory/40');
+                    dot.classList.add('bg-gold');
+                } else {
+                    dot.classList.remove('bg-gold');
+                    dot.classList.add('bg-ivory/40');
+                }
+            });
+        }
+
+        function nextHeroSlide() {
+            showHeroSlide(appState.currentHeroSlide + 1);
+        }
+
+        function prevHeroSlide() {
+            showHeroSlide(appState.currentHeroSlide - 1);
+        }
+
+        function goToHeroSlide(index) {
+            showHeroSlide(index);
+        }
+
+        // RENDER PRODUCTS
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+
+            let filtered = [...productsData];
+
+            // Gender
+            if (appState.activeFilters.gender !== 'All') {
+                filtered = filtered.filter(p => p.gender === appState.activeFilters.gender);
+            }
+
+            // Movement
+            if (appState.activeFilters.movement !== 'All') {
+                filtered = filtered.filter(p => p.movement === appState.activeFilters.movement);
+            }
+
+            // Category
+            if (appState.activeFilters.category !== 'All') {
+                filtered = filtered.filter(p => p.category === appState.activeFilters.category);
+            }
+
+            // Max Price
+            filtered = filtered.filter(p => p.price <= appState.activeFilters.maxPrice);
+
+            // Sort
+            if (appState.activeFilters.sort === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (appState.activeFilters.sort === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (appState.activeFilters.sort === 'rating') {
+                filtered.sort((a, b) => b.rating - a.rating);
+            } else if (appState.activeFilters.sort === 'newest') {
+                filtered.sort((a, b) => b.id - a.id);
+            }
+
+            // Count display
+            const countDisplay = document.getElementById('product-count-display');
+            if (countDisplay) countDisplay.innerText = `Showing ${filtered.length} Timepieces`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center bg-ivory-light rounded border border-borderLight">
+                        <i class="fa-solid fa-clock-rotate-left text-gold text-4xl mb-3"></i>
+                        <h3 class="font-cinzel text-xl text-navy font-bold">No Timepieces Found</h3>
+                        <p class="font-cormorant italic text-slate-custom mt-1">Try adjusting your filter selection to reveal hidden vault items.</p>
+                        <button onclick="resetFilters()" class="mt-4 px-6 py-2 bg-navy text-gold font-sans text-xs uppercase tracking-wider font-bold rounded">Clear All Filters</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(product => {
+                const isWishlisted = appState.wishlist.some(item => item.id === product.id);
+                return `
+                    <div class="group bg-navy text-ivory rounded shadow-lg overflow-hidden border border-gold/20 hover:border-gold transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- Image Header -->
+                            <div class="relative h-64 overflow-hidden bg-navy-dark">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                
+                                <!-- Badge -->
+                                <span class="absolute top-3 left-3 bg-gold text-navy font-cinzel text-[9px] font-bold px-2 py-0.5 tracking-widest uppercase rounded">
+                                    ${product.badge}
+                                </span>
+
+                                <!-- Wishlist Button -->
+                                <button onclick="toggleWishlistItem(${product.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full glass-navy border border-gold/40 text-ivory hover:text-gold flex items-center justify-center transition-colors focus:outline-none">
+                                    <i class="${isWishlisted ? 'fa-solid text-gold' : 'fa-regular'} fa-heart"></i>
+                                </button>
+
+                                <!-- Quick view floating overlay -->
+                                <div class="absolute inset-x-0 bottom-0 bg-navy-dark/90 py-2.5 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex justify-center">
+                                    <button onclick="quickViewProduct(${product.id})" class="text-xs font-sans text-gold font-bold uppercase tracking-widest hover:underline">
+                                        <i class="fa-regular fa-eye mr-1"></i> Quick View
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Details -->
+                            <div class="p-5">
+                                <span class="text-[10px] font-cinzel text-gold uppercase tracking-widest block">${product.brand}</span>
+                                <h3 class="font-cinzel font-bold text-base text-ivory mt-1 line-clamp-1 group-hover:text-gold transition-colors">${product.name}</h3>
+                                
+                                <div class="flex items-center space-x-2 text-xs text-gold/80 my-2">
+                                    <span><i class="fa-solid fa-star text-[10px]"></i> ${product.rating}</span>
+                                    <span class="text-ivory/40">•</span>
+                                    <span class="text-ivory/60 font-sans">${product.movement}</span>
+                                </div>
+
+                                <div class="flex items-baseline space-x-2">
+                                    <span class="font-cinzel text-lg font-bold text-gold">${formatINR(product.price)}</span>
+                                    <span class="font-sans text-xs text-ivory/40 line-through">${formatINR(product.originalPrice)}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="px-5 pb-5 pt-0 grid grid-cols-2 gap-2">
+                            <button onclick="addToCart(${product.id})" class="py-2 px-3 border border-gold/40 text-ivory font-sans text-[11px] uppercase tracking-wider font-semibold rounded hover:bg-gold/20 transition-all">
+                                Add To Cart
+                            </button>
+                            <button onclick="buyNowProduct(${product.id})" class="py-2 px-3 bg-gold text-navy font-sans text-[11px] uppercase tracking-wider font-bold rounded hover:bg-gold-soft transition-all">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // FILTER EVENT HANDLERS
+        function handleFilterChange() {
+            const genderRadio = document.querySelector('input[name="gender"]:checked');
+            const movementSelect = document.getElementById('movement-filter');
+            const categorySelect = document.getElementById('category-filter');
+            const sortSelect = document.getElementById('sort-order');
+
+            appState.activeFilters.gender = genderRadio ? genderRadio.value : 'All';
+            appState.activeFilters.movement = movementSelect ? movementSelect.value : 'All';
+            appState.activeFilters.category = categorySelect ? categorySelect.value : 'All';
+            appState.activeFilters.sort = sortSelect ? sortSelect.value : 'featured';
+
+            renderProducts();
+        }
+
+        function updatePriceSlider(value) {
+            appState.activeFilters.maxPrice = parseInt(value);
+            const sliderDisplay = document.getElementById('price-slider-value');
+            if (sliderDisplay) sliderDisplay.innerText = formatINR(parseInt(value));
+            renderProducts();
+        }
+
+        function resetFilters() {
+            appState.activeFilters = {
+                gender: 'All',
+                movement: 'All',
+                category: 'All',
+                maxPrice: 700000,
+                sort: 'featured'
+            };
+
+            const allGenderRadio = document.querySelector('input[name="gender"][value="All"]');
+            if (allGenderRadio) allGenderRadio.checked = true;
+
+            const movementSelect = document.getElementById('movement-filter');
+            if (movementSelect) movementSelect.value = 'All';
+
+            const categorySelect = document.getElementById('category-filter');
+            if (categorySelect) categorySelect.value = 'All';
+
+            const sortSelect = document.getElementById('sort-order');
+            if (sortSelect) sortSelect.value = 'featured';
+
+            const priceRange = document.getElementById('price-range');
+            if (priceRange) priceRange.value = 700000;
+
+            const sliderDisplay = document.getElementById('price-slider-value');
+            if (sliderDisplay) sliderDisplay.innerText = formatINR(700000);
+
+            renderProducts();
+            showToast("Vault filters cleared.");
+        }
+
+        function filterByGender(gender) {
+            resetFilters();
+            appState.activeFilters.gender = gender;
+            const targetRadio = document.querySelector(`input[name="gender"][value="${gender}"]`);
+            if (targetRadio) targetRadio.checked = true;
+            renderProducts();
+            scrollToSection('shop');
+        }
+
+        function filterByCategory(category) {
+            resetFilters();
+            appState.activeFilters.category = category;
+            const categorySelect = document.getElementById('category-filter');
+            if (categorySelect) categorySelect.value = category;
+            renderProducts();
+            scrollToSection('shop');
+        }
+
+        // CART OPERATIONS
+        function addToCart(productId, quantity = 1) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = appState.cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                appState.cart[existingIndex].quantity += quantity;
+            } else {
+                appState.cart.push({ ...product, quantity });
+            }
+
+            saveState();
+            showToast(`Added "${product.name}" to your Vault.`);
+            renderCartDrawer();
+        }
+
+        function updateCartQuantity(productId, delta) {
+            const index = appState.cart.findIndex(item => item.id === productId);
+            if (index > -1) {
+                appState.cart[index].quantity += delta;
+                if (appState.cart[index].quantity <= 0) {
+                    appState.cart.splice(index, 1);
+                }
+                saveState();
+                renderCartDrawer();
+            }
+        }
+
+        function removeFromCart(productId) {
+            appState.cart = appState.cart.filter(item => item.id !== productId);
+            saveState();
+            renderCartDrawer();
+            showToast("Timepiece removed from cart.");
+        }
+
+        function buyNowProduct(productId) {
+            addToCart(productId, 1);
+            toggleCartDrawer(false);
+            openCheckoutModal();
+        }
+
+        function renderCartDrawer() {
+            const container = document.getElementById('cart-items-container');
+            if (!container) return;
+
+            if (appState.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="py-12 text-center text-ivory/60">
+                        <i class="fa-solid fa-box-open text-3xl text-gold mb-2"></i>
+                        <h4 class="font-cinzel text-base text-ivory font-bold">Your Vault is Empty</h4>
+                        <p class="font-cormorant italic text-sm mt-1">Explore our curated collections to acquire timepieces.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = appState.cart.map(item => `
+                    <div class="flex space-x-4 pt-3">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded bg-navy-dark border border-gold/20">
+                        <div class="flex-1">
+                            <h4 class="font-cinzel text-xs font-bold text-ivory">${item.name}</h4>
+                            <span class="text-[10px] text-gold uppercase">${item.brand}</span>
+                            <div class="flex items-center justify-between mt-2">
+                                <div class="flex items-center space-x-2 border border-gold/30 rounded px-1.5 py-0.5">
+                                    <button onclick="updateCartQuantity(${item.id}, -1)" class="text-xs text-gold px-1 focus:outline-none">-</button>
+                                    <span class="text-xs font-bold text-ivory">${item.quantity}</span>
+                                    <button onclick="updateCartQuantity(${item.id}, 1)" class="text-xs text-gold px-1 focus:outline-none">+</button>
+                                </div>
+                                <span class="font-cinzel text-xs font-bold text-gold">${formatINR(item.price * item.quantity)}</span>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-ivory/40 hover:text-rose-400 text-xs self-start p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Recalculate totals
+            const subtotal = appState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Coupon discounts
+            let discount = 0;
+            if (appState.discountPercent > 0) {
+                discount = (subtotal * appState.discountPercent) / 100;
+            } else if (appState.couponDiscountFlat > 0) {
+                discount = appState.couponDiscountFlat;
+            }
+
+            const afterDiscount = Math.max(0, subtotal - discount);
+            const gst = Math.round(afterDiscount * STORE_CONFIG.gstRate);
+            
+            // Shipping calculation
+            let shipping = 0;
+            if (subtotal > 0 && subtotal < STORE_CONFIG.freeShippingThreshold) {
+                shipping = STORE_CONFIG.standardShipping;
+            }
+
+            const grandTotal = subtotal > 0 ? (afterDiscount + gst + shipping + appState.deliveryCharge) : 0;
+
+            document.getElementById('cart-subtotal-display').innerText = formatINR(subtotal);
+            document.getElementById('cart-discount-display').innerText = discount > 0 ? `-${formatINR(discount)}` : '₹0';
+            document.getElementById('cart-gst-display').innerText = formatINR(gst);
+            document.getElementById('cart-shipping-display').innerText = shipping === 0 ? 'Complimentary' : formatINR(shipping);
+            document.getElementById('cart-grandtotal-display').innerText = formatINR(grandTotal);
+
+            // Update checkout summary total if open
+            const chkSummaryTotal = document.getElementById('chk-summary-total');
+            if (chkSummaryTotal) chkSummaryTotal.innerText = formatINR(grandTotal);
+        }
+
+        // COUPON CODES SYSTEM
+        function applyCouponCode() {
+            const input = document.getElementById('coupon-code-input');
+            const msg = document.getElementById('coupon-message');
+            if (!input || !msg) return;
+
+            const code = input.value.trim().toUpperCase();
+
+            if (code === 'HOROLOGY10') {
+                appState.discountPercent = 10;
+                appState.couponDiscountFlat = 0;
+                msg.innerHTML = '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> 10% Discount Applied!</span>';
+                showToast("10% Coupon Applied!");
+            } else if (code === 'VAULT15') {
+                appState.discountPercent = 15;
+                appState.couponDiscountFlat = 0;
+                msg.innerHTML = '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> 15% VIP Discount Applied!</span>';
+                showToast("15% Coupon Applied!");
+            } else if (code === 'WELCOME2000') {
+                appState.discountPercent = 0;
+                appState.couponDiscountFlat = 2000;
+                msg.innerHTML = '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> ₹2,000 Flat Discount Applied!</span>';
+                showToast("₹2,000 Coupon Applied!");
+            } else {
+                msg.innerHTML = '<span class="text-rose-400 font-bold"><i class="fa-solid fa-xmark"></i> Invalid coupon code.</span>';
+                return;
+            }
+
+            renderCartDrawer();
+        }
+
+        // WISHLIST OPERATIONS
+        function toggleWishlistItem(productId) {
+            const index = appState.wishlist.findIndex(item => item.id === productId);
+            const product = productsData.find(p => p.id === productId);
+
+            if (index > -1) {
+                appState.wishlist.splice(index, 1);
+                showToast("Removed from Wishlist.");
+            } else if (product) {
+                appState.wishlist.push(product);
+                showToast("Saved to your Wishlist.");
+            }
+
+            saveState();
+            renderProducts();
+            renderWishlistDrawer();
+        }
+
+        function renderWishlistDrawer() {
+            const container = document.getElementById('wishlist-items-container');
+            if (!container) return;
+
+            if (appState.wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="py-12 text-center text-ivory/60">
+                        <i class="fa-regular fa-heart text-3xl text-gold mb-2"></i>
+                        <h4 class="font-cinzel text-base text-ivory font-bold">No Saved Timepieces</h4>
+                        <p class="font-cormorant italic text-sm mt-1">Click the heart icon on any product to save it here.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = appState.wishlist.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-navy-dark rounded border border-gold/20">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded">
+                            <div>
+                                <h4 class="font-cinzel text-xs font-bold text-ivory">${item.name}</h4>
+                                <span class="font-cinzel text-xs text-gold">${formatINR(item.price)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="addToCart(${item.id})" class="px-2 py-1 bg-gold text-navy font-bold text-[10px] rounded hover:bg-gold-soft">
+                                + Cart
+                            </button>
+                            <button onclick="toggleWishlistItem(${item.id})" class="text-ivory/40 hover:text-rose-400 text-xs p-1">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // QUICK VIEW MODAL
+        function quickViewProduct(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            const container = document.getElementById('quickview-content');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="relative h-80 bg-navy-dark rounded overflow-hidden border border-gold/30">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-gold text-navy font-cinzel text-[9px] font-bold px-2 py-0.5 tracking-widest uppercase rounded">
+                            ${product.badge}
+                        </span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <span class="text-xs font-cinzel text-gold uppercase tracking-widest">${product.brand}</span>
+                        <h2 class="font-cinzel text-2xl font-bold text-ivory">${product.name}</h2>
+                        
+                        <div class="flex items-center space-x-3 text-xs">
+                            <span class="text-gold font-bold"><i class="fa-solid fa-star"></i> ${product.rating}</span>
+                            <span class="text-ivory/40">•</span>
+                            <span class="text-ivory/60 font-sans">SKU: ${product.sku}</span>
+                        </div>
+
+                        <div class="flex items-baseline space-x-3">
+                            <span class="font-cinzel text-2xl font-bold text-gold">${formatINR(product.price)}</span>
+                            <span class="font-sans text-sm text-ivory/40 line-through">${formatINR(product.originalPrice)}</span>
+                        </div>
+
+                        <p class="font-cormorant text-base italic text-ivory/80 leading-relaxed">${product.description}</p>
+
+                        <!-- Specifications table -->
+                        <div class="grid grid-cols-2 gap-2 text-xs bg-navy-dark p-3 rounded border border-gold/20 font-sans">
+                            <div><span class="text-gold/80">Movement:</span> ${product.movement}</div>
+                            <div><span class="text-gold/80">Case:</span> ${product.caseMaterial}</div>
+                            <div><span class="text-gold/80">Size:</span> ${product.caseSize}</div>
+                            <div><span class="text-gold/80">Water Resistance:</span> ${product.waterResistance}</div>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <button onclick="addToCart(${product.id}); closeQuickView();" class="flex-1 py-3 border border-gold/40 text-ivory font-bold text-xs uppercase rounded hover:bg-gold/20">
+                                Add To Cart
+                            </button>
+                            <button onclick="buyNowProduct(${product.id}); closeQuickView();" class="flex-1 py-3 bg-gold text-navy font-bold text-xs uppercase rounded hover:bg-gold-soft">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('quickview-modal');
+            if (modal) modal.classList.add('modal-active');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickview-modal');
+            if (modal) modal.classList.remove('modal-active');
+        }
+
+        // LIVE SEARCH
+        function handleLiveSearch(query) {
+            const container = document.getElementById('search-results-container');
+            if (!container) return;
+
+            const q = query.trim().toLowerCase();
+            if (q.length < 2) {
+                container.innerHTML = '<p class="text-ivory/50 font-sans text-sm italic">Type at least 2 characters to search timepieces...</p>';
+                return;
+            }
+
+            const matches = productsData.filter(p => 
+                p.name.toLowerCase().includes(q) ||
+                p.brand.toLowerCase().includes(q) ||
+                p.sku.toLowerCase().includes(q) ||
+                p.category.toLowerCase().includes(q)
+            );
+
+            if (matches.length === 0) {
+                container.innerHTML = '<p class="text-rose-300 font-sans text-sm italic">No timepieces matched your search criteria in the Vault.</p>';
+                return;
+            }
+
+            container.innerHTML = matches.map(p => `
+                <div onclick="quickViewProduct(${p.id}); toggleSearchModal();" class="pt-3 pb-3 flex items-center justify-between cursor-pointer hover:bg-navy-light/40 px-3 rounded transition-colors">
+                    <div class="flex items-center space-x-4">
+                        <img src="${p.image}" alt="${p.name}" class="w-12 h-12 object-cover rounded">
+                        <div>
+                            <h4 class="font-cinzel text-sm text-ivory font-bold">${p.name}</h4>
+                            <span class="text-xs text-gold uppercase">${p.brand} • ${p.sku}</span>
+                        </div>
+                    </div>
+                    <span class="font-cinzel text-sm font-bold text-gold">${formatINR(p.price)}</span>
+                </div>
+            `).join('');
+        }
+
+        // CHECKOUT & PAYMENT SIMULATION
+        function openCheckoutModal() {
+            if (appState.cart.length === 0) {
+                showToast("Your cart is empty!");
+                return;
+            }
+            const modal = document.getElementById('checkout-modal');
+            if (modal) modal.classList.add('modal-active');
+            renderCartDrawer();
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            if (modal) modal.classList.remove('modal-active');
+        }
+
+        function goToCheckoutStep(step) {
+            const step1 = document.getElementById('checkout-step-1');
+            const step2 = document.getElementById('checkout-step-2');
+            const ind1 = document.getElementById('step-1-indicator');
+            const ind2 = document.getElementById('step-2-indicator');
+
+            if (step === 2) {
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                ind1.classList.remove('text-gold', 'font-bold');
+                ind1.classList.add('text-ivory/40');
+                ind2.classList.add('text-gold', 'font-bold');
+                ind2.classList.remove('text-ivory/40');
+            } else {
+                step2.classList.add('hidden');
+                step1.classList.remove('hidden');
+                ind2.classList.remove('text-gold', 'font-bold');
+                ind2.classList.add('text-ivory/40');
+                ind1.classList.add('text-gold', 'font-bold');
+                ind1.classList.remove('text-ivory/40');
+            }
+        }
+
+        function updateCheckoutDelivery(amount) {
+            appState.deliveryCharge = amount;
+            renderCartDrawer();
+        }
+
+        function selectPaymentTab(tab) {
+            ['card', 'upi', 'netbank', 'cod'].forEach(t => {
+                const btn = document.getElementById(`pay-tab-${t}`);
+                const form = document.getElementById(`pay-form-${t}`);
+                if (btn && form) {
+                    if (t === tab) {
+                        btn.classList.add('border-gold', 'bg-gold', 'text-navy');
+                        btn.classList.remove('border-gold/30', 'text-ivory');
+                        form.classList.remove('hidden');
+                    } else {
+                        btn.classList.remove('border-gold', 'bg-gold', 'text-navy');
+                        btn.classList.add('border-gold/30', 'text-ivory');
+                        form.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+
+            closeCheckoutModal();
+
+            // Generate order reference ID
+            const randomNum = Math.floor(100000 + Math.random() * 900000);
+            const orderId = `THV-2026-${randomNum}`;
+            const fname = document.getElementById('chk-fname')?.value || 'Alexander';
+            const lname = document.getElementById('chk-lname')?.value || 'Vance';
+            const email = document.getElementById('chk-email')?.value || 'alexander@example.com';
+            const city = document.getElementById('chk-city')?.value || 'Mumbai';
+
+            const subtotal = appState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let discount = 0;
+            if (appState.discountPercent > 0) discount = (subtotal * appState.discountPercent) / 100;
+            else if (appState.couponDiscountFlat > 0) discount = appState.couponDiscountFlat;
+            const afterDiscount = Math.max(0, subtotal - discount);
+            const gst = Math.round(afterDiscount * STORE_CONFIG.gstRate);
+            const finalTotal = afterDiscount + gst + appState.deliveryCharge;
+
+            // Render confirmation screen
+            const detailsBox = document.getElementById('confirmation-details');
+            if (detailsBox) {
+                detailsBox.innerHTML = `
+                    <div class="flex justify-between border-b border-navy-light pb-2">
+                        <span class="text-gold font-bold">Order Reference:</span>
+                        <span class="font-mono">${orderId}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-navy-light pb-2">
+                        <span class="text-gold font-bold">Client Name:</span>
+                        <span>${fname} ${lname}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-navy-light pb-2">
+                        <span class="text-gold font-bold">Delivery Location:</span>
+                        <span>${city}, India</span>
+                    </div>
+                    <div class="flex justify-between border-b border-navy-light pb-2">
+                        <span class="text-gold font-bold">Est. Delivery:</span>
+                        <span>3 Business Days (Armored Express)</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-gold text-sm pt-1">
+                        <span>Total Paid:</span>
+                        <span>${formatINR(finalTotal)}</span>
+                    </div>
+                `;
+            }
+
+            // Build Printable Invoice
+            const invoice = document.getElementById('printable-invoice');
+            if (invoice) {
+                invoice.innerHTML = `
+                    <div style="font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; color: #0B1F33;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #C5A059; padding-bottom: 15px;">
+                            <div>
+                                <h1 style="font-family: serif; font-size: 24px; margin: 0; color: #0B1F33;">THE HOROLOGY VAULT</h1>
+                                <p style="margin: 2px 0 0; font-style: italic; color: #C5A059;">TIME, REFINED.</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <h3 style="margin: 0; font-size: 16px;">INVOICE</h3>
+                                <p style="margin: 2px 0 0; color: #666;">Ref: ${orderId}</p>
+                                <p style="margin: 2px 0 0; color: #666;">Date: ${new Date().toLocaleDateString('en-IN')}</p>
+                            </div>
+                        </div>
+
+                        <div style="margin: 20px 0; display: flex; justify-content: space-between;">
+                            <div>
+                                <strong>Billed To:</strong><br>
+                                ${fname} ${lname}<br>
+                                ${email}
+                            </div>
+                            <div style="text-align: right;">
+                                <strong>Fulfillment Vault:</strong><br>
+                                Geneva & Mumbai Vault Hubs<br>
+                                Insured Armored Logistics
+                            </div>
+                        </div>
+
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                            <thead>
+                                <tr style="background: #0B1F33; color: #fff;">
+                                    <th style="padding: 10px; text-align: left;">Item Description</th>
+                                    <th style="padding: 10px; text-align: center;">Qty</th>
+                                    <th style="padding: 10px; text-align: right;">Unit Price</th>
+                                    <th style="padding: 10px; text-align: right;">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${appState.cart.map(item => `
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="padding: 10px;">${item.name} (${item.sku})</td>
+                                        <td style="padding: 10px; text-align: center;">${item.quantity}</td>
+                                        <td style="padding: 10px; text-align: right;">${formatINR(item.price)}</td>
+                                        <td style="padding: 10px; text-align: right;">${formatINR(item.price * item.quantity)}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 20px; text-align: right; line-height: 1.8;">
+                            <p style="margin:0;">Subtotal: ${formatINR(subtotal)}</p>
+                            <p style="margin:0; color: green;">Discount: -${formatINR(discount)}</p>
+                            <p style="margin:0;">GST (18%): ${formatINR(gst)}</p>
+                            <p style="margin:0;">Shipping: ${formatINR(appState.deliveryCharge)}</p>
+                            <h3 style="margin:5px 0 0; font-size: 18px; color: #C5A059;">Grand Total: ${formatINR(finalTotal)}</h3>
+                        </div>
+
+                        <div style="margin-top: 40px; border-top: 1px solid #ddd; pt-10px; text-align: center; color: #888; font-size: 11px;">
+                            Thank you for acquiring timepieces from The Horology Vault. Certified 2-Year International Warranty Included.
+                        </div>
+                    </div>
+                `;
+            }
+
+            const confirmModal = document.getElementById('confirmation-modal');
+            if (confirmModal) confirmModal.classList.add('modal-active');
+
+            // Clear cart
+            appState.cart = [];
+            saveState();
+            renderCartDrawer();
+            showToast("Order Placed Successfully!");
+        }
+
+        function printCurrentInvoice() {
+            window.print();
+        }
+
+        function closeConfirmationAndReset() {
+            const confirmModal = document.getElementById('confirmation-modal');
+            if (confirmModal) confirmModal.classList.remove('modal-active');
+            scrollToSection('home');
+        }
+
+        // INVESTMENT CALCULATOR LOGIC
+        function calculateInvestment() {
+            const initial = parseFloat(document.getElementById('calc-initial')?.value || 250000);
+            const rate = parseFloat(document.getElementById('calc-rate')?.value || 6.5) / 100;
+            const years = parseInt(document.getElementById('calc-years')?.value || 5);
+
+            // Future Value formula: P * (1 + r)^n
+            const futureValue = Math.round(initial * Math.pow((1 + rate), years));
+            const profit = futureValue - initial;
+            const percentageReturn = ((profit / initial) * 100).toFixed(1);
+
+            document.getElementById('calc-future-val').innerText = formatINR(futureValue);
+            document.getElementById('calc-profit-val').innerText = `+${formatINR(profit)}`;
+            document.getElementById('calc-return-val').innerText = `+${percentageReturn}%`;
+        }
+
+        // LANDED PRICE CALCULATOR LOGIC
+        function calculateLandedPrice() {
+            const base = parseFloat(document.getElementById('price-base')?.value || 124999);
+            const discPercent = parseFloat(document.getElementById('price-discount')?.value || 10) / 100;
+            const shipping = parseFloat(document.getElementById('price-shipping')?.value || 0);
+
+            const afterDisc = Math.max(0, base - (base * discPercent));
+            const gst = Math.round(afterDisc * STORE_CONFIG.gstRate);
+            const total = Math.round(afterDisc + gst + shipping);
+
+            document.getElementById('landed-subtotal').innerText = formatINR(afterDisc);
+            document.getElementById('landed-gst').innerText = formatINR(gst);
+            document.getElementById('landed-total').innerText = formatINR(total);
+        }
+
+        // COUNTDOWN TIMER LOGIC
+        function initCountdownTimer() {
+            let totalSeconds = (2 * 86400) + (14 * 3600) + (32 * 60) + 18;
+            
+            setInterval(() => {
+                if (totalSeconds > 0) totalSeconds--;
+
+                const d = Math.floor(totalSeconds / 86400);
+                const h = Math.floor((totalSeconds % 86400) / 3600);
+                const m = Math.floor((totalSeconds % 3600) / 60);
+                const s = Math.floor(totalSeconds % 60);
+
+                const td = document.getElementById('timer-days');
+                const th = document.getElementById('timer-hours');
+                const tm = document.getElementById('timer-mins');
+                const ts = document.getElementById('timer-secs');
+
+                if (td) td.innerText = String(d).padStart(2, '0');
+                if (th) th.innerText = String(h).padStart(2, '0');
+                if (tm) tm.innerText = String(m).padStart(2, '0');
+                if (ts) ts.innerText = String(s).padStart(2, '0');
+            }, 1000);
+        }
+
+        // UI DRAWER TOGGLES
+        function toggleCartDrawer(forceOpen = null) {
+            const overlay = document.getElementById('cart-drawer-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            if (!overlay || !drawer) return;
+
+            const isOpen = overlay.classList.contains('opacity-100');
+            const shouldOpen = forceOpen !== null ? forceOpen : !isOpen;
+
+            if (shouldOpen) {
+                renderCartDrawer();
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+                drawer.classList.add('drawer-open');
+            } else {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('drawer-open');
+            }
+        }
+
+        function toggleWishlistDrawer(forceOpen = null) {
+            const overlay = document.getElementById('wishlist-drawer-overlay');
+            const drawer = document.getElementById('wishlist-drawer');
+            if (!overlay || !drawer) return;
+
+            const isOpen = overlay.classList.contains('opacity-100');
+            const shouldOpen = forceOpen !== null ? forceOpen : !isOpen;
+
+            if (shouldOpen) {
+                renderWishlistDrawer();
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+                drawer.classList.add('drawer-open');
+            } else {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('drawer-open');
+            }
+        }
+
+        function toggleSearchModal() {
+            const modal = document.getElementById('search-modal');
+            if (!modal) return;
+            const isOpen = modal.classList.contains('modal-active');
+            if (!isOpen) {
+                modal.classList.add('modal-active');
+                setTimeout(() => document.getElementById('search-input')?.focus(), 100);
+            } else {
+                modal.classList.remove('modal-active');
+            }
+        }
+
+        function toggleAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            if (modal) modal.classList.toggle('modal-active');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function dismissAnnouncement() {
+            const bar = document.getElementById('announcement-bar');
+            if (bar) bar.style.display = 'none';
+        }
+
+        function scrollToSection(id) {
+            const sec = document.getElementById(id);
+            if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSection(id) {
+            scrollToSection(id);
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            if (emailInput && emailInput.value) {
+                showToast("Welcome to The Vault Concierge list.");
+                emailInput.value = '';
+            }
+        }
+
+        // TOAST ENGINE
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-navy text-ivory border border-gold px-4 py-3 rounded shadow-2xl flex items-center justify-between text-xs font-sans tracking-wide transition-all duration-300 transform translate-y-4 opacity-0';
+            toast.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-gem text-gold"></i>
+                    <span>${message}</span>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-ivory/50 hover:text-gold ml-3 focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
